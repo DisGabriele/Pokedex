@@ -29,15 +29,16 @@
             app:layout_constraintBottom_toTopOf="@+id/frameLista"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/backgound_gradient">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/pokemonInfo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:background="@color/black"
                 app:layout_constraintBottom_toTopOf="@id/descriptionLayout"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -45,13 +46,16 @@
                 <ImageView
                     android:id="@+id/pokemonImage"
                     pokemonImage="@{viewModel.pokemonScreen.img}"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:background="@color/white"
+                    app:layout_constraintHeight_percent="0.9"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.5"
+                    android:importantForAccessibility="no" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/nameLayout"
@@ -73,8 +77,8 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="8dp"
                         android:background="@color/white"
-                        android:gravity="center"
                         android:textColor="@color/black"
+                        android:gravity="center"
                         app:layout_constraintBottom_toTopOf="@id/pokemonType1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -87,8 +91,8 @@
                         pokemonType1="@{viewModel.pokemonScreen.types}"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginTop="16dp"
                         android:layout_marginEnd="8dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginBottom="24dp"
                         android:background="@color/white"
                         android:gravity="center"
@@ -105,6 +109,8 @@
                         pokemonType2="@{viewModel.pokemonScreen.types}"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
                         android:background="@color/white"
                         android:gravity="center"
                         android:textColor="@color/black"
@@ -123,7 +129,6 @@
                 android:id="@+id/descriptionLayout"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +142,7 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@color/white"
                     android:gravity="center"
                     android:textColor="@color/black"
@@ -174,10 +179,12 @@
                     android:layout_marginHorizontal="8dp"
                     android:layout_marginBottom="8dp"
                     android:background="@color/white"
+                    android:clipToOutline="false"
                     android:gravity="center"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.6"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/pokemonHeight"
                     tools:text="Description" />
@@ -191,7 +198,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            android:background="@color/black"
+            android:background="@drawable/backgound_gradient"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -205,10 +212,13 @@
                 android:layout_marginVertical="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="32dp"
+                android:alwaysDrawnWithCache="true"
+                android:scrollbars="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_list">
 
             </androidx.recyclerview.widget.RecyclerView>
 

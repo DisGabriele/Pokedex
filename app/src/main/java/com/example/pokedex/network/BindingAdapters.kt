@@ -1,13 +1,17 @@
 package com.example.pokedex.network
 
+import android.annotation.SuppressLint
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import coil.load
+import com.example.pokedex.R
 
 @BindingAdapter("pokemonImage")
 fun loadImage(imageView: ImageView, data: String?) {
-    imageView.load(data)
+    imageView.load(data){
+        error(R.drawable.missingno)
+    }
 }
 
 @BindingAdapter("pokemonName")
@@ -30,14 +34,16 @@ fun loadType2(textView: TextView, data: List<String>?) {
     }
 }
 
+@SuppressLint("SetTextI18n")
 @BindingAdapter("pokemonHeight")
 fun loadHeight(textView: TextView, data: String?) {
-    textView.text = "$data m"
+    textView.text = "Altezza: $data m"
 }
 
+@SuppressLint("SetTextI18n")
 @BindingAdapter("pokemonWeight")
 fun loadWeight(textView: TextView, data: String?) {
-    textView.text = "$data KG"
+    textView.text = "Peso: $data KG"
 }
 
 @BindingAdapter("pokemonDescription")
