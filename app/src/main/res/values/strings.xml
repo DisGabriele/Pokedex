@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pokedex</string>
+    <string name="height">Peso: %.2f m</string>
+    <string name="weight">Altezza: %.2f Kg</string>
 </resources>

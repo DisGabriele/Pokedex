@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listButton">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="com.example.pokedex.adapter.PokemonAdapter.PokemonListener" />
+
+        <variable
+            name="pokemon"
+            type="com.example.pokedex.network.Pokemon" />
+        <import type="android.view.View"/>
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="@color/white"
+    android:onClick="@{()->clickListener.onClick(pokemon)}"
+    >
+
+
+    <ImageView
+        android:id="@+id/pokeballIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/pok__ball_icon" />
+
+    <TextView
+        android:id="@+id/pokemonListId"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        style="?textAppearanceBody1"
+        android:textColor="@color/black"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/pokeballIcon"
+        app:layout_constraintTop_toTopOf="@id/pokeballIcon"
+        app:layout_constraintBottom_toBottomOf="@id/pokeballIcon"
+        android:text="@{pokemon.name.isEmpty() ? `Loading` : String.format(`#%03d`,pokemon.num)}"
+        tools:text="001" />
+
+    <TextView
+        android:id="@+id/pokemonlistName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        style="?textAppearanceBody1"
+        android:textColor="@color/black"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/pokemonListId"
+        app:layout_constraintTop_toTopOf="@id/pokemonListId"
+        app:layout_constraintBottom_toBottomOf="@id/pokemonListId"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@{pokemon.num == -1 ? `Loading` : pokemon.name}"
+        tools:text="Bulbasaur" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
