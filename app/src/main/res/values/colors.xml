@@ -9,19 +9,19 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background">#404248</color>
 
-    <color name="type_normal">#50A8A878</color> <!-- Normal -->
-    <color name="type_fire">#50F08030</color> <!-- Fire -->
-    <color name="type_water">#506890F0</color> <!-- Water -->
-    <color name="type_electric">#50F8D030</color> <!-- Electric -->
-    <color name="type_grass">#5078C850</color> <!-- Grass -->
-    <color name="type_ice">#5098D8D8</color> <!-- Ice -->
-    <color name="type_fighting">#50C03028</color> <!-- Fighting -->
-    <color name="type_poison">#50A040A0</color> <!-- Poison -->
-    <color name="type_ground">#50E0C068</color> <!-- Ground -->
-    <color name="type_flying">#50A890F0</color> <!-- Flying -->
-    <color name="type_psychic">#50F85888</color> <!-- Psychic -->
-    <color name="type_bug">#50A8B820</color> <!-- Bug -->
-    <color name="type_rock">#50B8A038</color> <!-- Rock -->
-    <color name="type_ghost">#50705898</color> <!-- Ghost -->
-    <color name="type_dragon">#507038F8</color> <!-- Dragon -->
+    <color name="type_normal">#C0A8A878</color> <!-- Normal -->
+    <color name="type_fire">#C0F08030</color> <!-- Fire -->
+    <color name="type_water">#C06890F0</color> <!-- Water -->
+    <color name="type_electric">#C0F8D030</color> <!-- Electric -->
+    <color name="type_grass">#C078C850</color> <!-- Grass -->
+    <color name="type_ice">#C098D8D8</color> <!-- Ice -->
+    <color name="type_fighting">#C0C03028</color> <!-- Fighting -->
+    <color name="type_poison">#C0A040A0</color> <!-- Poison -->
+    <color name="type_ground">#C0E0C068</color> <!-- Ground -->
+    <color name="type_flying">#C0A890F0</color> <!-- Flying -->
+    <color name="type_psychic">#C0F85888</color> <!-- Psychic -->
+    <color name="type_bug">#C0A8B820</color> <!-- Bug -->
+    <color name="type_rock">#C0B8A038</color> <!-- Rock -->
+    <color name="type_ghost">#C0705898</color> <!-- Ghost -->
+    <color name="type_dragon">#C07038F8</color> <!-- Dragon -->
 </resources>

@@ -23,12 +23,50 @@ fun loadName(textView: TextView, data: String?) {
 fun loadType1(textView: TextView, data: List<String>?) {
     textView.text = data?.get(0)
 
+    textView.setBackgroundResource(when(textView.text){
+        "Normale" -> R.color.type_normal
+        "Fuoco" -> R.color.type_fire
+        "Acqua" -> R.color.type_water
+        "Elettro" -> R.color.type_electric
+        "Erba" -> R.color.type_grass
+        "Ghiaccio" -> R.color.type_ice
+        "Lotta" -> R.color.type_fighting
+        "Veleno" -> R.color.type_poison
+        "Terra" -> R.color.type_ground
+        "Volante" -> R.color.type_flying
+        "Psico" -> R.color.type_psychic
+        "Coleott." -> R.color.type_bug
+        "Roccia" -> R.color.type_rock
+        "Spettro" -> R.color.type_ghost
+        "Drago" -> R.color.type_dragon
+        else -> R.color.white
+    })
+
 }
 
 @BindingAdapter("pokemonType2")
 fun loadType2(textView: TextView, data: List<String>?) {
     if(data?.size == 2){
         textView.text = data[1]
+
+        textView.setBackgroundResource(when(textView.text){
+            "Normale" -> R.color.type_normal
+            "Fuoco" -> R.color.type_fire
+            "Acqua" -> R.color.type_water
+            "Elettro" -> R.color.type_electric
+            "Erba" -> R.color.type_grass
+            "Ghiaccio" -> R.color.type_ice
+            "Lotta" -> R.color.type_fighting
+            "Veleno" -> R.color.type_poison
+            "Terra" -> R.color.type_ground
+            "Volante" -> R.color.type_flying
+            "Psico" -> R.color.type_psychic
+            "Coleott." -> R.color.type_bug
+            "Roccia" -> R.color.type_rock
+            "Spettro" -> R.color.type_ghost
+            "Drago" -> R.color.type_dragon
+            else -> R.color.white
+        })
     }
     else{
         textView.text = ""
