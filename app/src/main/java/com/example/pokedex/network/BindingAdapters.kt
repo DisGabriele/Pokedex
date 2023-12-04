@@ -11,6 +11,7 @@ import com.example.pokedex.R
 fun loadImage(imageView: ImageView, data: String?) {
     imageView.load(data){
         error(R.drawable.missingno)
+        placeholder(R.drawable.pok__ball_placeholder_icon)
     }
 }
 

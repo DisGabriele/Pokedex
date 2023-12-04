@@ -84,6 +84,7 @@
                     app:layout_constraintTop_toTopOf="@id/pokemonImageContainer">
 
 
+
                     <TextView
                         android:id="@+id/pokemonName"
                         style="?textAppearanceBody1"
