@@ -39,6 +39,9 @@ fun loadType1(textView: TextView, data: List<String>?) {
         "Roccia" -> R.color.type_rock
         "Spettro" -> R.color.type_ghost
         "Drago" -> R.color.type_dragon
+        "Acciaio" -> R.color.type_steel
+        "Buio" -> R.color.type_dark
+        "Folletto" -> R.color.type_fairy
         else -> R.color.white
     })
 
@@ -65,6 +68,9 @@ fun loadType2(textView: TextView, data: List<String>?) {
             "Roccia" -> R.color.type_rock
             "Spettro" -> R.color.type_ghost
             "Drago" -> R.color.type_dragon
+            "Acciaio" -> R.color.type_steel
+            "Buio" -> R.color.type_dark
+            "Folletto" -> R.color.type_fairy
             else -> R.color.white
         })
     }

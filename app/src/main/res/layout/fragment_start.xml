@@ -44,30 +44,44 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-
-                <ImageView
-                    android:id="@+id/pokemonImage"
-                    pokemonImage="@{viewModel.pokemonScreen.img}"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/pokemonImageContainer"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:background="@color/white"
-                    android:importantForAccessibility="no"
-                    app:layout_constraintHeight_percent="0.9"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="9.5dp"
+                    android:background="@drawable/backlistinv"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.5" />
+                    app:layout_constraintHeight_percent="0.9"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:ignore="RtlSymmetry">
+
+                    <ImageView
+                        android:id="@+id/pokemonImage"
+                        pokemonImage="@{viewModel.pokemonScreen.img}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:importantForAccessibility="no"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@drawable/pok__ball_icon"
+                        tools:ignore="ImageContrastCheck" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/nameLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="10dp"
-                    app:layout_constraintBottom_toBottomOf="@id/pokemonImage"
+                    app:layout_constraintBottom_toBottomOf="@id/pokemonImageContainer"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/pokemonImage"
-                    app:layout_constraintTop_toTopOf="@id/pokemonImage">
+                    app:layout_constraintStart_toEndOf="@id/pokemonImageContainer"
+                    app:layout_constraintTop_toTopOf="@id/pokemonImageContainer">
 
 
                     <TextView
@@ -211,7 +225,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scrollbars="vertical"
-                android:background="@drawable/backrecycler"
                 android:layout_marginVertical="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="32dp"
