@@ -22,6 +22,7 @@ fun loadName(textView: TextView, data: String?) {
 @BindingAdapter("pokemonType1")
 fun loadType1(textView: TextView, data: List<String>?) {
     textView.text = data?.get(0)
+
 }
 
 @BindingAdapter("pokemonType2")

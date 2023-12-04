@@ -17,8 +17,6 @@ class PokemonAdapter(
         var binding: ItemListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-
-
         fun bind(clickListener: PokemonListener, pokemon: Pokemon) {
             binding.pokemon = pokemon
             binding.clickListener = clickListener
@@ -26,6 +24,7 @@ class PokemonAdapter(
         }
 
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
 

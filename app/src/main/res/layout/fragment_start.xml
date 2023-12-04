@@ -28,11 +28,11 @@
             android:id="@+id/framePokemon"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:background="@drawable/backgound_gradient"
             app:layout_constraintBottom_toTopOf="@+id/frameLista"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/backgound_gradient">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/pokemonInfo"
@@ -53,11 +53,11 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:background="@color/white"
+                    android:importantForAccessibility="no"
                     app:layout_constraintHeight_percent="0.9"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.5"
-                    android:importantForAccessibility="no" />
+                    app:layout_constraintWidth_percent="0.5" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/nameLayout"
@@ -79,8 +79,8 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="8dp"
                         android:background="@color/white"
-                        android:textColor="@color/black"
                         android:gravity="center"
+                        android:textColor="@color/black"
                         app:layout_constraintBottom_toTopOf="@id/pokemonType1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -93,8 +93,8 @@
                         pokemonType1="@{viewModel.pokemonScreen.types}"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginEnd="8dp"
                         android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_marginBottom="24dp"
                         android:background="@color/white"
                         android:gravity="center"
@@ -206,17 +206,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/framePokemon">
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lista"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:scrollbars="vertical"
+                android:background="@drawable/backrecycler"
                 android:layout_marginVertical="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="32dp"
-                android:paddingBottom="5dp"
-                android:background="#303238"
-                android:scrollbars="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

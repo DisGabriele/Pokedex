@@ -40,7 +40,6 @@ class StartFragment : Fragment() {
            sharedViewModel.setPokemonScreen(pokemon)
         })
 
-
         binding?.lista?.layoutManager = LinearLayoutManager(requireContext())
         binding?.lista?.adapter = adapter
 
