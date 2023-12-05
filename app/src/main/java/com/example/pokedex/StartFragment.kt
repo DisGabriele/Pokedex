@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import coil.load
 import com.example.pokedex.adapter.PokemonAdapter
 import com.example.pokedex.databinding.FragmentStartBinding
 import com.example.pokedex.network.model.PokemonViewModel
@@ -24,7 +25,6 @@ class StartFragment : Fragment() {
     ): View {
         val fragmentBinding = FragmentStartBinding.inflate(inflater, container, false)
         binding = fragmentBinding
-
         return fragmentBinding.root
     }
 
@@ -39,6 +39,13 @@ class StartFragment : Fragment() {
         adapter = PokemonAdapter(PokemonAdapter.PokemonListener (
             { pokemon ->
                 sharedViewModel.setPokemonScreen(pokemon)
+                binding?.pokemonImage?.load(pokemon.img){
+                    listener(
+                        onError = {_,_ ->
+                            Toast.makeText(context,getText(R.string.image_preview),Toast.LENGTH_SHORT).show()
+                        }
+                    )
+                }
         }
          ,context
         )
@@ -47,11 +54,17 @@ class StartFragment : Fragment() {
         binding?.lista?.layoutManager = LinearLayoutManager(requireContext())
         binding?.lista?.adapter = adapter
 
-        sharedViewModel.pokemonList.observe(viewLifecycleOwner, Observer { pokemonList ->
-            if(pokemonList.isNotEmpty()){
+
+        sharedViewModel.pokemonList.observe(viewLifecycleOwner) { pokemonList ->
+
+            if (pokemonList.isNotEmpty()) {
                 adapter?.submitList(pokemonList)
+
+                if (sharedViewModel.pokemonScreen.value == null) {
+                    sharedViewModel.setPokemonScreen(pokemonList.get(0))
+                }
             }
-        })
+        }
     }
 
     override fun onDestroyView() {

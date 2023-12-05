@@ -183,7 +183,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pokemonInfo">
 
-
                 <TextView
                     android:id="@+id/pokemonDescription"
                     style="?textAppearanceBody1"
@@ -218,19 +217,36 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
+            <ImageView
+                android:id="@+id/errorImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toStartOf="@id/lista"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/lista"
+                app:layout_constraintBottom_toTopOf="@id/lista"
+                android:src="@drawable/ic_connection_error"
+                statusImage="@{viewModel.status}"
+                android:importantForAccessibility="no" />
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lista"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:scrollbars="vertical"
                 android:layout_marginVertical="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="32dp"
-                tools:listitem="@layout/item_list"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
+                app:layout_constraintTop_toBottomOf="@id/errorImage"
+                tools:listitem="@layout/item_list"
+                statusRecycler="@{viewModel.status}">
             </androidx.recyclerview.widget.RecyclerView>
 
 

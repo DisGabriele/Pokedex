@@ -1,11 +1,15 @@
 package com.example.pokedex.network
 
 import android.annotation.SuppressLint
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.pokedex.R
+import com.example.pokedex.network.model.Status
+
 
 @BindingAdapter("pokemonImage")
 fun loadImage(imageView: ImageView, data: String?) {
@@ -17,12 +21,19 @@ fun loadImage(imageView: ImageView, data: String?) {
 
 @BindingAdapter("pokemonName")
 fun loadName(textView: TextView, data: String?) {
-    textView.text = data
+
+    textView.text = data ?: "???"
 }
 
 @BindingAdapter("pokemonType1")
 fun loadType1(textView: TextView, data: List<String>?) {
-    textView.text = data?.get(0)
+
+    if(data == null){
+        textView.text = "???"
+    }
+    else{
+
+    textView.text = data.get(0)
 
     textView.setBackgroundResource(when(textView.text){
         "Normale" -> R.color.type_normal
@@ -45,12 +56,17 @@ fun loadType1(textView: TextView, data: List<String>?) {
         "Folletto" -> R.color.type_fairy
         else -> R.color.white
     })
-
+    }
 }
 
 @BindingAdapter("pokemonType2")
 fun loadType2(textView: TextView, data: List<String>?) {
-    if(data?.size == 2){
+    if(data == null){
+        textView.text = "???"
+    }
+    else{
+
+    if(data.size == 2){
         textView.text = data[1]
 
         textView.setBackgroundResource(when(textView.text){
@@ -78,21 +94,52 @@ fun loadType2(textView: TextView, data: List<String>?) {
     else{
         textView.text = ""
     }
+    }
 }
 
 @SuppressLint("SetTextI18n")
 @BindingAdapter("pokemonHeight")
 fun loadHeight(textView: TextView, data: String?) {
-    textView.text = "Altezza: $data m"
+    textView.text = "Altezza: ${data ?: "???"} m"
 }
 
 @SuppressLint("SetTextI18n")
 @BindingAdapter("pokemonWeight")
 fun loadWeight(textView: TextView, data: String?) {
-    textView.text = "Peso: $data KG"
+    textView.text = "Peso: ${data ?: "???"} KG"
 }
 
 @BindingAdapter("pokemonDescription")
 fun loadDescription(textView: TextView, data: String?) {
-    textView.text = data
+    textView.text = data ?: "???"
+}
+
+@BindingAdapter("statusImage")
+fun statusImage(textView: ImageView, status: Status?){
+when(status){
+Status.LOADING,Status.DONE -> {
+    textView.visibility = View.GONE
+}
+Status.ERROR -> {
+    textView.visibility = View.VISIBLE
+}
+    else ->{
+
+    }
+}
+}
+
+@BindingAdapter("statusRecycler")
+fun statusRecycler(recyclerView: RecyclerView, status: Status?){
+    when(status){
+        Status.LOADING,Status.DONE -> {
+            recyclerView.visibility = View.VISIBLE
+        }
+        Status.ERROR -> {
+            recyclerView.visibility = View.GONE
+        }
+        else ->{
+
+        }
+    }
 }

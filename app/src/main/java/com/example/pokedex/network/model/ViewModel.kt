@@ -8,12 +8,19 @@ import com.example.pokedex.network.Pokemon
 import com.example.pokedex.network.PokemonApi
 import kotlinx.coroutines.launch
 
+enum class Status{
+    LOADING,ERROR,DONE
+}
+
 class PokemonViewModel : ViewModel() {
 
-    private val _pokemonList = MutableLiveData<List<Pokemon>>()
+    private val _status = MutableLiveData(Status.LOADING)
+    val status: LiveData<Status> = _status
+
+    private val _pokemonList = MutableLiveData<List<Pokemon>>(listOf())
     val pokemonList: LiveData<List<Pokemon>> = _pokemonList
 
-    private val _pokemonScreen = MutableLiveData(Pokemon(494,"Victini", listOf("Psico","Fuoco"),"0.4","4","Questo Pokèmon porta la vittoria. Si dice che gli Allenatori con Victini vincono sempre, indipendentemente dal tipo di incontro","https://www.serebii.net/pokemon/art/494.png"))
+    private val _pokemonScreen = MutableLiveData<Pokemon>()
     val pokemonScreen: LiveData<Pokemon> = _pokemonScreen
 
     fun setPokemonScreen(pokemon: Pokemon){
@@ -23,11 +30,15 @@ class PokemonViewModel : ViewModel() {
 
     private fun getPkmnList(){
         viewModelScope.launch {
-            try {
-                _pokemonList.value = PokemonApi.retrofitService.getPokemon().pokemons.toMutableList()
-            } catch (e: Exception) {
-                _pokemonList.value = mutableListOf()
+            while(_pokemonList.value!!.isEmpty()) {
+                try {
+                    _pokemonList.value = PokemonApi.retrofitService.getPokemon().pokemons.toMutableList()
+                } catch (e: Exception) {
+                    _pokemonList.value = mutableListOf()
+                    _status.value = Status.ERROR
+                }
             }
+            _status.value = Status.DONE
         }
     }
     init{

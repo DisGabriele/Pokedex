@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pokedex</string>
+    <string name="height">Peso: %.2f m</string>
+    <string name="weight">Altezza: %.2f Kg</string>
+    <string name="connection_error">Errore di connessione!</string>
+    <string name="image_preview">Immagine non disponibile!</string>
+</resources>

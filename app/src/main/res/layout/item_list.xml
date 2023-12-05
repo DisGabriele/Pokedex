@@ -24,7 +24,7 @@
         android:clickable="true"
         android:layout_marginBottom="4dp"
         android:onTouch="@{touchListener}"
-        android:onClickListener= "@{()->touchListener.onClick(pokemon)}"
+        android:onClick= "@{()->touchListener.onClick(pokemon)}"
         tools:ignore="RtlSymmetry">
 
 

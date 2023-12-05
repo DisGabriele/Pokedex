@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Pokedex</string>
-    <string name="height">Peso: %.2f m</string>
-    <string name="weight">Altezza: %.2f Kg</string>
+    <string name="app_name" translatable="false">Pokedex</string>
+    <string name="height">Weight: %.2f m</string>
+    <string name="weight">Height: %.2f Kg</string>
+    <string name="connection_error">Connection error!</string>
+    <string name="image_preview">Image preview not available!</string>
 </resources>
