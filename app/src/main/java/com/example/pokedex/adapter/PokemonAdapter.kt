@@ -1,15 +1,22 @@
 package com.example.pokedex.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
+import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pokedex.R
 import com.example.pokedex.databinding.ItemListBinding
 import com.example.pokedex.network.Pokemon
 
+
 class PokemonAdapter(
-    private val clickListener: PokemonListener,
+    private val touchListener: PokemonListener
 ): ListAdapter<Pokemon, PokemonAdapter.PokemonViewHolder>(DiffCallback) {
 
 
@@ -17,9 +24,9 @@ class PokemonAdapter(
         var binding: ItemListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(clickListener: PokemonListener, pokemon: Pokemon) {
+        fun bind(touchListener: PokemonListener, pokemon: Pokemon) {
             binding.pokemon = pokemon
-            binding.clickListener = clickListener
+            binding.touchListener = touchListener
             binding.executePendingBindings()
         }
 
@@ -47,10 +54,31 @@ class PokemonAdapter(
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val pokemon = getItem(position)
-        holder.bind(clickListener,pokemon)
+        holder.bind(touchListener,pokemon)
     }
+    class PokemonListener(
+        val touchListener: (pokemon: Pokemon) -> Unit,
+        private val context: Context?,
+    ) : OnTouchListener {
 
-    class PokemonListener(val clickListener: (pokemon: Pokemon) -> Unit) {
-        fun onClick(pokemon: Pokemon) = clickListener(pokemon)
+        override fun onTouch(v: View, event : MotionEvent): Boolean {
+
+           when (event.action) {
+                MotionEvent.ACTION_DOWN ->   {
+                    v.setBackgroundResource(R.drawable.empty_background)
+                    v.updatePadding(left = (11.4 * context!!.resources.displayMetrics.density).toInt(),top = (7.4 * context.resources.displayMetrics.density).toInt(), bottom = 0, right = 0) // Set padding to 0 for both right and bottom
+                    v.performClick()
+                }              // Pressed
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    v.setBackgroundResource(R.drawable.backlist)
+                    v.updatePadding(right = (11.4 * context!!.resources.displayMetrics.density).toInt(), bottom = (7.4 * context.resources.displayMetrics.density).toInt(),left = 0,top = 0)
+                }
+
+            }
+            return false
+        }
+
+        fun onClick(pokemon:Pokemon) = touchListener(pokemon)
+
     }
 }

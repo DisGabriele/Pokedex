@@ -50,8 +50,8 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:paddingEnd="14dp"
-                    android:paddingBottom="9.5dp"
+                    android:paddingEnd="12.5dp"
+                    android:paddingBottom="9dp"
                     android:background="@drawable/backlistinv"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -83,12 +83,9 @@
                     app:layout_constraintStart_toEndOf="@id/pokemonImageContainer"
                     app:layout_constraintTop_toTopOf="@id/pokemonImageContainer">
 
-
-
                     <TextView
                         android:id="@+id/pokemonName"
                         style="?textAppearanceBody1"
-                        pokemonName="@{viewModel.pokemonScreen.name}"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginTop="16dp"
@@ -96,11 +93,12 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:textColor="@color/black"
+                        pokemonName="@{viewModel.pokemonScreen.name}"
+                        tools:text="Pokemon Name"
                         app:layout_constraintBottom_toTopOf="@id/pokemonType1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="Pokemon Name" />
+                        app:layout_constraintTop_toTopOf="parent"/>
 
                     <TextView
                         android:id="@+id/pokemonType1"
