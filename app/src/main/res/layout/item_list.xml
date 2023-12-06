@@ -49,13 +49,15 @@
 
         <TextView
             android:id="@+id/pokemonListId"
-            style="?textAppearanceBody1"
-            android:layout_width="wrap_content"
+            style="?textAppearanceBodyLarge"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:gravity="center"
             android:text="@{pokemon.name.isEmpty() ? `Loading` : String.format(`#%03d`,pokemon.num)}"
             android:textColor="@color/black"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintEnd_toStartOf="@id/pokemonlistName"
             app:layout_constraintBottom_toBottomOf="@id/pokeballIcon"
             app:layout_constraintStart_toEndOf="@id/pokeballIcon"
             app:layout_constraintTop_toTopOf="@id/pokeballIcon"
@@ -68,6 +70,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:gravity="center"
+
             android:text="@{pokemon.num == -1 ? `Loading` : pokemon.name}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/pokemonListId"
