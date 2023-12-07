@@ -41,6 +41,7 @@
         <ImageView
             android:id="@+id/pokeballIcon"
             android:layout_width="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_height="wrap_content"
             android:src="@drawable/pok__ball_icon"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +50,8 @@
 
         <TextView
             android:id="@+id/pokemonListId"
-            style="?textAppearanceBodyLarge"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -61,16 +63,16 @@
             app:layout_constraintBottom_toBottomOf="@id/pokeballIcon"
             app:layout_constraintStart_toEndOf="@id/pokeballIcon"
             app:layout_constraintTop_toTopOf="@id/pokeballIcon"
-            tools:text="001" />
+            tools:text="#001" />
 
         <TextView
             android:id="@+id/pokemonlistName"
-            style="?textAppearanceBody1"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:gravity="center"
-
             android:text="@{pokemon.num == -1 ? `Loading` : pokemon.name}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/pokemonListId"

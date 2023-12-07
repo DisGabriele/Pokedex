@@ -100,13 +100,13 @@ fun loadType2(textView: TextView, data: List<String>?) {
 @SuppressLint("SetTextI18n")
 @BindingAdapter("pokemonHeight")
 fun loadHeight(textView: TextView, data: String?) {
-    textView.text = "Altezza: ${data ?: "???"} m"
+    textView.text = "${data ?: "???"} m"
 }
 
 @SuppressLint("SetTextI18n")
 @BindingAdapter("pokemonWeight")
 fun loadWeight(textView: TextView, data: String?) {
-    textView.text = "Peso: ${data ?: "???"} KG"
+    textView.text = "${data ?: "???"} KG"
 }
 
 @BindingAdapter("pokemonDescription")

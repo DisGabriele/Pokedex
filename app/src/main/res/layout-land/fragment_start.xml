@@ -83,7 +83,8 @@
 
                     <TextView
                         android:id="@+id/pokemonName"
-                        style="?textAppearanceBody1"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
                         pokemonName="@{viewModel.pokemonScreen.name}"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -100,7 +101,8 @@
 
                     <TextView
                         android:id="@+id/pokemonType1"
-                        style="?textAppearanceBody1"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
                         pokemonType1="@{viewModel.pokemonScreen.types}"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -117,7 +119,8 @@
 
                     <TextView
                         android:id="@+id/pokemonType2"
-                        style="?textAppearanceBody1"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
                         pokemonType2="@{viewModel.pokemonScreen.types}"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -134,7 +137,8 @@
 
                     <TextView
                         android:id="@+id/pokemonHeight"
-                        style="?textAppearanceBody1"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
                         pokemonHeight="@{viewModel.pokemonScreen.height}"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -150,7 +154,8 @@
 
                     <TextView
                         android:id="@+id/pokemonWeight"
-                        style="?textAppearanceBody1"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
                         pokemonWeight="@{viewModel.pokemonScreen.weight}"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -181,7 +186,8 @@
 
                 <TextView
                     android:id="@+id/pokemonDescription"
-                    style="?textAppearanceBody1"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
                     pokemonDescription="@{viewModel.pokemonScreen.description}"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -235,7 +241,7 @@
                 android:layout_height="0dp"
                 android:scrollbars="vertical"
                 android:layout_marginVertical="16dp"
-                android:layout_marginHorizontal="16dp"
+                android:layout_marginHorizontal="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
