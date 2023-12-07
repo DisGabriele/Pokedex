@@ -25,6 +25,6 @@
     <color name="type_ghost">#C0705898</color> <!-- Ghost -->
     <color name="type_dragon">#C07038F8</color> <!-- Dragon -->
     <color name="type_steel">#C0888888</color> <!-- Steel -->
-    <color name="type_dark">#C05A5365</color> <!-- Dark -->
+    <color name="type_dark">#A05A5365</color> <!-- Dark -->
     <color name="type_fairy">#C0EB8FE6</color> <!-- Fairy -->
 </resources>

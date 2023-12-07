@@ -57,7 +57,7 @@ class StartFragment : Fragment() {
 
 
         sharedViewModel.status.observe(viewLifecycleOwner){
-            if(sharedViewModel.statusCounter.value == false && sharedViewModel.status.value != Status.LOADING){
+            if(sharedViewModel.statusCounter.value == false && sharedViewModel.status.value == Status.ERROR){
                 Toast.makeText(context,getText(R.string.connection_error),Toast.LENGTH_SHORT).show()
                 sharedViewModel.toggleStatusCounter()
             }
