@@ -12,6 +12,7 @@ import coil.load
 import com.example.pokedex.adapter.PokemonAdapter
 import com.example.pokedex.databinding.FragmentStartBinding
 import com.example.pokedex.network.model.PokemonViewModel
+import com.example.pokedex.network.model.Status
 
 class StartFragment : Fragment() {
 
@@ -54,6 +55,13 @@ class StartFragment : Fragment() {
         binding?.lista?.layoutManager = LinearLayoutManager(requireContext())
         binding?.lista?.adapter = adapter
 
+
+        sharedViewModel.status.observe(viewLifecycleOwner){
+            if(sharedViewModel.statusCounter.value == false && sharedViewModel.status.value != Status.LOADING){
+                Toast.makeText(context,getText(R.string.connection_error),Toast.LENGTH_SHORT).show()
+                sharedViewModel.toggleStatusCounter()
+            }
+        }
 
         sharedViewModel.pokemonList.observe(viewLifecycleOwner) { pokemonList ->
 

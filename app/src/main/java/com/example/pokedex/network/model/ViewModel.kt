@@ -14,6 +14,10 @@ enum class Status{
 
 class PokemonViewModel : ViewModel() {
 
+    private val _statusCounter = MutableLiveData(false)
+    val statusCounter: LiveData<Boolean> = _statusCounter
+
+
     private val _status = MutableLiveData(Status.LOADING)
     val status: LiveData<Status> = _status
 
@@ -25,6 +29,10 @@ class PokemonViewModel : ViewModel() {
 
     fun setPokemonScreen(pokemon: Pokemon){
         _pokemonScreen.value = pokemon
+    }
+
+    fun toggleStatusCounter(){
+        _statusCounter.value = !_statusCounter.value!!
     }
 
 
